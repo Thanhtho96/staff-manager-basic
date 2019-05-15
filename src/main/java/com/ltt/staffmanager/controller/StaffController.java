@@ -74,7 +74,7 @@ public class StaffController {
         }
         staffService.updateStaff(staffEntity);
         model.addAttribute("listStaff", staffService.getAllStaff());
-        return "listStaff";
+        return "redirect:/listStaff";
     }
 
     @PostMapping("/deleteStaff/{id}")
