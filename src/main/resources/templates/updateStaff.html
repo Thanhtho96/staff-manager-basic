@@ -18,7 +18,8 @@
         </tr>
         <tr>
             <th>Phone Number</th>
-            <td><input type="text" th:field="*{phonenumber}"></td>
+            <td><input type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" th:field="*{phonenumber}"
+                       id="phoneNumber"></td>
         </tr>
         <tr>
             <th>Address</th>
@@ -27,5 +28,29 @@
     </table>
     <button type="submit">UPDATE</button>
 </form>
+    
+    <!-- Đoạn script này ngăn không cho viết chữ chỉ viết số-->
+<script>
+    function setInputFilter(textbox, inputFilter) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (event) {
+            textbox.addEventListener(event, function () {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                }
+            });
+        });
+    }
+    // Install input filters.
+    setInputFilter(document.getElementById("phoneNumber"), function (value) {
+        return /^\d*$/.test(value);
+    });
+</script>
+
+    
 </body>
 </html>
