@@ -92,10 +92,26 @@ public class StaffController {
                              @Param("phonenumber") String phonenumber,
                              @Param("address") String address) {
         Date startDateTemp = null, endDateTemp = null;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            startDateTemp = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
-            endDateTemp = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
+            if (startDate.equals("")) {
+                startDateTemp = simpleDateFormat.parse("1970-01-01");
+                endDateTemp = simpleDateFormat.parse(endDate);
+            }
+            if (endDate.equals("")) {
+                startDateTemp = simpleDateFormat.parse(startDate);
+                Date date = new Date();
+                endDateTemp = simpleDateFormat.parse(simpleDateFormat.format(date));
+            }
+            if (startDate.equals("") && endDate.equals("")) {
+                startDateTemp = simpleDateFormat.parse("1970-01-01");
+                Date date = new Date();
+                endDateTemp = simpleDateFormat.parse(simpleDateFormat.format(date));
+            } else {
+                endDateTemp = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
+                startDateTemp = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
+            }
         } catch (ParseException e) {
         }
 
