@@ -15,7 +15,7 @@ public interface StaffRepository extends CrudRepository<StaffEntity, Long> {
             "and (:startDate is null or st.birthday >=:startDate) and (:endDate is null or st.birthday <= :endDate) " +
             "and st.phonenumber like %:phonenumber% and st.address like %:address%")
     List<StaffEntity> searchByProperties(@Param("name") String name,
-                                         @Param("startDate") Date birthday,
+                                         @Param("startDate") Date startDate,
                                          @Param("endDate") Date endDate,
                                          @Param("phonenumber") String phonenumber,
                                          @Param("address") String address);
