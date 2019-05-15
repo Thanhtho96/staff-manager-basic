@@ -12,7 +12,7 @@ public interface StaffRepository extends CrudRepository<StaffEntity, Long> {
     List<StaffEntity> findByName(String name);
 
     @Query("from StaffEntity st where st.name like %:name% " +
-            "and ( st.birthday >=:startDate) " +
+            "and ( st.birthday >= :startDate) " +
             "and ( st.birthday <= :endDate) " +
             "and st.phonenumber like %:phonenumber% " +
             "and st.address like %:address%")
