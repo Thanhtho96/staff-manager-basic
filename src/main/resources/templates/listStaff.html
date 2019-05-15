@@ -30,7 +30,7 @@
     </tr>
     <tr th:each="item : ${listStaff}">
         <td th:text="${item.getName()}"></td>
-        <td th:text="${#dates.format(item.getBirthday(), 'MM-dd-yyyy')}"></td>
+        <td th:text="${#dates.format(item.getBirthday(), 'dd-MM-yyyy')}"></td>
         <td th:text="${item.getPhonenumber()}"></td>
         <td th:text="${item.getAddress()}"></td>
         <td><a type="submit" th:href="@{/editStaff/{id}(id=${item.id})}">Edit</a></td>
