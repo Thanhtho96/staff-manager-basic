@@ -25,11 +25,6 @@ public class StaffService implements IStaffService {
     }
 
     @Override
-    public List<StaffEntity> searchByProperties(String name, String birthday, String phonenumber, String address) {
-        return staffRepository.searchByProperties(name, birthday, phonenumber, address);
-    }
-
-    @Override
     public StaffEntity getStaffById(long id) {
         StaffEntity obj = staffRepository.findById(id).get();
         return obj;

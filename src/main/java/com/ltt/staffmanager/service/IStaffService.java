@@ -15,11 +15,6 @@ public interface IStaffService {
                                          @Param("phonenumber") String phonenumber,
                                          @Param("address") String address);
 
-    List<StaffEntity> searchByProperties(@Param("name") String name,
-                                         @Param("birthday") String birthday,
-                                         @Param("phonenumber") String phonenumber,
-                                         @Param("address") String address);
-
     StaffEntity getStaffById(long id);
 
     List<StaffEntity> getStaffByName(String name);
