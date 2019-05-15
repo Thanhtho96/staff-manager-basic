@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Staff</title>
+</head>
+<body>
+<form th:action="@{/advanceSearch}" method="post">
+    <input name="name" type="text" placeholder="Name">
+    <!--Birthday <input name="birthday" type="date">-->
+    Birthday from <input name="startDate" type="date">
+    to <input name="endDate" type="date">
+    <input name="phonenumber" type="text" placeholder="Phone number">
+    <input name="address" type="text" placeholder="Address">
+    <button type="submit">SEARCH</button>
+</form>
+
+<form th:action="@{/}">
+    <button type="submit">SHOW ALL STAFF</button>
+</form>
+
+<table border="2px">
+    <tr>
+        <th>Name</th>
+        <th>Birthday</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="item : ${listStaff}">
+        <td th:text="${item.getName()}"></td>
+        <td th:text="${#dates.format(item.getBirthday(), 'MM-dd-yyyy')}"></td>
+        <td th:text="${item.getPhonenumber()}"></td>
+        <td th:text="${item.getAddress()}"></td>
+        <td><a type="submit" th:href="@{/editStaff/{id}(id=${item.id})}">Edit</a></td>
+        <td><a type="submit" th:href="@{/deleteStaff/{id}(id=${item.id})}">Delete</a></td>
+
+    </tr>
+</table>
+<form th:action="@{/addStaff}">
+    <input type="submit" value="ADD STAFF">
+</form>
+</body>
+</html>

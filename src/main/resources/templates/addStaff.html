@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Staff</title>
+</head>
+<body>
+
+<form th:action="@{/saveStaff}" method="post">
+    <table>
+        <tr>
+            <th>Name</th>
+            <td><input type="text" id="name" name="newName" required></td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td><input type="date" id="birthday" name="newBirthday" required></td>
+        </tr>
+        <tr>
+            <th>Phone Number</th>
+            <td><input type="text" id="phoneNumber" name="newPhoneNumber"></td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td><input type="text" id="address" name="newAddress" required></td>
+        </tr>
+    </table>
+    <button type="submit">ADD</button>
+</form>
+</body>
+</html>
