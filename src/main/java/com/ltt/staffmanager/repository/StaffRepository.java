@@ -16,10 +16,10 @@ public interface StaffRepository extends CrudRepository<StaffEntity, Long> {
             "and ( st.birthday <= :endDate) " +
             "and st.phonenumber like %:phonenumber% and unaccent(st.address) ilike %:address%", nativeQuery = true)
     List<StaffEntity> searchByProperties(@Param("name") String name,
-                                   @Param("startDate") Date startDate,
-                                   @Param("endDate") Date endDate,
-                                   @Param("phonenumber") String phonenumber,
-                                   @Param("address") String address);
+                                         @Param("startDate") Date startDate,
+                                         @Param("endDate") Date endDate,
+                                         @Param("phonenumber") String phonenumber,
+                                         @Param("address") String address);
 
 
 }

@@ -7,8 +7,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.text.ParseException;
@@ -98,13 +100,11 @@ public class StaffController {
             if (startDate.equals("") && !endDate.equals("")) {
                 startDateTemp = simpleDateFormat.parse("1970-01-01");
                 endDateTemp = simpleDateFormat.parse(endDate);
-            }
-            else if (!startDate.equals("") && endDate.equals("")) {
+            } else if (!startDate.equals("") && endDate.equals("")) {
                 startDateTemp = simpleDateFormat.parse(startDate);
                 Date date = new Date();
                 endDateTemp = simpleDateFormat.parse(simpleDateFormat.format(date));
-            }
-            else if (startDate.equals("") && endDate.equals("")) {
+            } else if (startDate.equals("") && endDate.equals("")) {
                 startDateTemp = simpleDateFormat.parse("1970-01-01");
                 Date date = new Date();
                 endDateTemp = simpleDateFormat.parse(simpleDateFormat.format(date));

@@ -33,8 +33,13 @@
         <td th:text="${#dates.format(item.getBirthday(), 'dd-MM-yyyy')}"></td>
         <td th:text="${item.getPhonenumber()}"></td>
         <td th:text="${item.getAddress()}"></td>
-        <td><form th:action="@{/editStaff/{id}(id=${item.id})}" method="post"><input type="submit" value="Edit"></form></td>
-        <td><form th:action="@{/deleteStaff/{id}(id=${item.id})}" method="post"><input type="submit" value="Delete"></form></td>
+        <td>
+            <form th:action="@{/editStaff/{id}(id=${item.id})}" method="post"><input type="submit" value="Edit"></form>
+        </td>
+        <td>
+            <form th:action="@{/deleteStaff/{id}(id=${item.id})}" method="post"><input type="submit" value="Delete">
+            </form>
+        </td>
 
     </tr>
 </table>
