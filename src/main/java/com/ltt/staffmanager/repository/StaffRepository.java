@@ -11,10 +11,10 @@ import java.util.List;
 public interface StaffRepository extends CrudRepository<StaffEntity, Long> {
     List<StaffEntity> findByName(String name);
 
-    @Query(value = "select * from staff st where unaccent(st.name) like %:name% " +
+    @Query(value = "select * from staff st where unaccent(st.name) ilike %:name% " +
             "and ( st.birthday >= :startDate) " +
             "and ( st.birthday <= :endDate) " +
-            "and st.phonenumber like %:phonenumber% and unaccent(st.address) like %:address%", nativeQuery = true)
+            "and st.phonenumber like %:phonenumber% and unaccent(st.address) ilike %:address%", nativeQuery = true)
     List<StaffEntity> searchByProperties(@Param("name") String name,
                                    @Param("startDate") Date startDate,
                                    @Param("endDate") Date endDate,
