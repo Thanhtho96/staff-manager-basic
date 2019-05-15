@@ -85,7 +85,7 @@ public class StaffController {
     }
 
     @PostMapping("/advanceSearch")
-    public String getStudent(Model model, RedirectAttributes redirectAttributes,
+    public String getStudent(Model model,
                              @Param("name") String name,
                              @Param("startDate") String startDate,
                              @Param("endDate") String endDate,
@@ -105,7 +105,7 @@ public class StaffController {
 //      listStaff = (ArrayList<StaffEntity>) staffService.searchByProperties(name, birthday, phonenumber, address);
 //        redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.createAccountModel", result);
         model.addAttribute("listStaff", listStaff);
-        return "redirect:/listStaff";
+        return "listStaff";
     }
 
 }
