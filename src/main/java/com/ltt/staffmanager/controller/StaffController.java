@@ -54,7 +54,7 @@ public class StaffController {
         staffService.saveStaff(staffEntity);
 
         model.addAttribute("listStaff", staffService.getAllStaff());
-        return "listStaff";
+        return "redirect:/listStaff";
     }
 
 
@@ -81,7 +81,7 @@ public class StaffController {
     public String deleteStaff(@PathVariable("id") long id, Model model) {
         staffService.deleteStaff(id);
         model.addAttribute("listStaff", staffService.getAllStaff());
-        return "listStaff";
+        return "redirect:/listStaff";
     }
 
     @PostMapping("/advanceSearch")
@@ -105,7 +105,7 @@ public class StaffController {
 //      listStaff = (ArrayList<StaffEntity>) staffService.searchByProperties(name, birthday, phonenumber, address);
 //        redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.createAccountModel", result);
         model.addAttribute("listStaff", listStaff);
-        return "listStaff";
+        return "redirect:/listStaff";
     }
 
 }
