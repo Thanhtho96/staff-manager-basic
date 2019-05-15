@@ -1,5 +1,7 @@
 package com.ltt.staffmanager.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -36,6 +38,7 @@ public class StaffEntity {
 
     @Basic
     @Column(name = "birthday")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     public Date getBirthday() {
         return birthday;
     }
