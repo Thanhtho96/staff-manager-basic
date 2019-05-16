@@ -51,7 +51,7 @@
     <!--Birthday <input name="birthday" type="date">-->
     Birthday from <input name="startDate" type="date">
     to <input name="endDate" type="date">
-    <input name="phonenumber" type="text" placeholder="Phone number">
+    <input type="tel" name="phonenumber" maxlength="10" id="phoneNumber" placeholder="Phone number">
     <input name="address" type="text" placeholder="Address">
     <button type="submit">SEARCH</button>
 </form>
@@ -88,5 +88,29 @@
 <form align="center"  th:action="@{/addStaff}" method="post">
     <button type="submit" class="button"><span>ADD STAFF</span>
 </form>
+    
+    <!-- Đoạn script này ngăn không cho viết chữ chỉ viết số-->
+<script>
+    function setInputFilter(textbox, inputFilter) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (event) {
+            textbox.addEventListener(event, function () {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                }
+            });
+        });
+    }
+    // Install input filters.
+    setInputFilter(document.getElementById("phoneNumber"), function (value) {
+        return /^\d*$/.test(value);
+    });
+</script>
+
+    
 </body>
 </html>
