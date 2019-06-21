@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page not found</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>html, body {
+        padding: 0;
+        margin: 0
+    }
+
+    img {
+        border: 0
+    }
+
+    #sorry {
+        text-align: center;
+        margin: 30px 0
+    }
+
+    #sorry img {
+        max-width: 90%
+    }
+
+    #dog {
+        text-align: center;
+        margin: 30px 0;
+        display: none;
+        max-width: 90%
+    }
+
+    #dog[src] {
+        display: inline
+    }</style>
+</head>
+<body>
+<div align="center">
+    <div id="sorry">
+        <img alt="Sorry! We couldn&#39;t find that page" src="https://staff-manager-tt.herokuapp.com/images/sorry.png"
+             class="img-fluid">
+    </div>
+    <a>
+        <img id="dog" alt="Dogs" src="" class="img-fluid">
+
+        <script>document.getElementById("dog").src = "https://staff-manager-tt.herokuapp.com/images/dog_" + Math.floor(Math.random() * 16) + ".jpg";</script>
+    </a>
+</div>
+</body>
+</html>
