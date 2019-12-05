@@ -1,7 +1,6 @@
 package com.ltt.staffmanager.service;
 
 import com.ltt.staffmanager.model.StaffEntity;
-import org.springframework.data.repository.query.Param;
 
 import java.util.Date;
 import java.util.List;
@@ -9,11 +8,11 @@ import java.util.List;
 public interface IStaffService {
     List<StaffEntity> getAllStaff();
 
-    List<StaffEntity> searchByProperties(@Param("name") String name,
-                                         @Param("startDate") Date startDate,
-                                         @Param("endDate") Date endDate,
-                                         @Param("phonenumber") String phonenumber,
-                                         @Param("address") String address);
+    List<StaffEntity> searchByProperties(String name,
+                                         Date startDate,
+                                         Date endDate,
+                                         String phonenumber,
+                                         String address);
 
     StaffEntity getStaffById(long id);
 
